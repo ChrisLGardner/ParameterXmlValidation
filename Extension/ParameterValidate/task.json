@@ -1,0 +1,52 @@
+{
+  "id": "0bb7e74d-3930-4769-b58b-0b9eaa6ea047",
+  "name": "ParameterValidate",
+  "friendlyName": "Validate Parameters.xml",
+  "description": "Validates parameters.xml file matches references config files",
+  "helpMarkDown": "Version: #{Build.BuildNumber}#. [More Information](https://github.com/ChrisLGardner/ParameterXmlValidation)",
+  "category": "Test",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Chris Gardner",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "demands": [],
+  "minimumAgentVersion": "2.1.0",
+  "inputs": [
+    {
+      "name": "path",
+      "type": "filepath",
+      "label": "Path to parameters.xml files",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Path to the parameters.xml files and their associated config files. Should target the parent directory if there are multiple to be validated."
+    },
+    {
+      "name": "failTaskOnFailedTests",
+      "type": "boolean",
+      "label": "Fail if there are test failures",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Fail the task if there are any test failures. Check this option to fail the task if test failures are detected in the result files."
+    },
+    {
+      "name": "testRunTitle",
+      "type": "string",
+      "label": "Test run title",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Provide a name for the Test Run."
+    }
+  ],
+  "instanceNameFormat": "Validtate Parameters.xml",
+  "execution": {
+    "PowerShell3": {
+      "target": "start.ps1"
+    }
+  }
+}
