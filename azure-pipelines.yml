@@ -1,5 +1,4 @@
-trigger:
- - master
+trigger: none
 
 variables:
   ExtensionId: CLG-ParameterXmlValidation
@@ -37,7 +36,6 @@ stages:
           updateTasksVersion: true
           extensionVisibility: private
 
-
       - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
         displayName: 'Create Package -Public'
         inputs:
@@ -49,11 +47,11 @@ stages:
           updateTasksVersion: true
           extensionVisibility: public
 
-
       - task: PublishPipelineArtifact@1
         inputs:
           targetPath: '$(Build.ArtifactStagingDirectory)\vsix'
           artifact: 'vsix'
+
 
   - stage: Private
     dependsOn: build
@@ -83,6 +81,7 @@ stages:
                   VsixPath: '$(VsixPath)'
                   ServiceEndpoint: 'Chris Marketplace'
                   TfxInstall: true
+
 
   - stage: Public
     dependsOn: Private
