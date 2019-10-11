@@ -8,6 +8,10 @@
   "categories": [
     "Azure Pipelines"
   ],
+  "CustomerQnASupport": {
+    "enableqna": "true",
+    "url": "https://github.com/chrislgardner/ParameterXmlValidation/issues"
+  },
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
